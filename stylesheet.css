@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(to right, #0250c5 0%, #d43f8d 100%);
+  color: rgb(235, 229, 229);
+  font-family: "Rokkitt";
+  min-height: 100vh;
+}
+
+header {
+  font-size: 2rem;
+}
+
+header,
+form {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form input,
+form button {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  background: white;
+}
+
+form button {
+  color: #2cb978;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+form button:hover {
+  background: #2cb978;
+  color: white;
+}
