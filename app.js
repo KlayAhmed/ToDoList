@@ -41,21 +41,24 @@ function addTodo(event) {
   todoList.appendChild(todoDiv);
   //Clear input
   todoInput.value = "";
-
-  if (todayInput.value == "") {
-  }
 }
 
 function deleteCheck(e) {
   console.log(e.target);
   const item = e.target;
-  if (item.classList[0] === "trash-btn") {
-    const todo = item.parentElement;
-    todo.remove();
-  } else if (item.classList[0] === "complete-btn") {
-    const todo = item.parentElement;
-    todo.classList.toggle("completed");
-  } else {
+  const todo = item.parentElement;
+  switch (item.classList[0]) {
+    case "trash-btn":
+      todo.classList.add("fall");
+      todo.addEventListener("transitionend", function () {
+        todo.remove();
+      });
+      break;
+    case "complete-btn":
+      todo.classList.toggle("completed");
+      break;
+    default:
+      alert("enter something");
   }
 }
 

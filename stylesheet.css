@@ -104,3 +104,8 @@ form button:hover {
   opacity: 0.5;
   transition: all 0.2s ease-in;
 }
+.fall {
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
+  transition: all 0.4s ease-out;
+}
