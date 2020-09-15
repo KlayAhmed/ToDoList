@@ -7,14 +7,6 @@ const filterOption = document.querySelector(".filter-todo");
 
 //X-Selectors-X//
 
-//--Event Listeners--//
-
-todoButton.addEventListener("click", addTodo);
-filterOption.addEventListener("click", filterTodo);
-todoList.addEventListener("click", deleteCheck);
-document.addEventListener("DOMContentLoaded", getTodos);
-//X-Event Listeners-X//
-
 //--Functions--//
 
 let addTodo = (e) => {
@@ -148,3 +140,41 @@ let removeLocalTodo = (todo) => {
 };
 
 //X-Funtions-X//
+
+//--Event Listeners--//
+
+todoButton.addEventListener("click", addTodo);
+filterOption.addEventListener("click", filterTodo);
+todoList.addEventListener("click", deleteCheck);
+document.addEventListener("DOMContentLoaded", getTodos);
+
+//X-Event Listeners-X//
+
+// Clock
+
+function digitalClock() {
+  let date = new Date();
+  let hour = date.getHours() + "";
+  let min = date.getMinutes() + "";
+  let sec = date.getSeconds() + "";
+
+  const day = date.getDay();
+
+  if (hour.length < 2) {
+    hour = "0" + hours;
+  }
+  if (min.length < 2) {
+    min = "0" + min;
+  }
+  if (sec.length < 2) {
+    sec = "0" + sec;
+  }
+
+  let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  let clock = weekDays[day] + " " + hour + ":" + min;
+
+  document.getElementById("clock").innerHTML = clock;
+}
+
+setInterval(digitalClock, 1000);
