@@ -74,7 +74,12 @@ form button:hover {
 
 .todo {
   margin: 0.5rem;
-  background: white;
+  background-image: linear-gradient(
+    to right,
+    rgb(145, 234, 228),
+    rgb(134, 168, 231),
+    rgb(127, 127, 213)
+  );
   color: black;
   font-size: 1.5rem;
   display: flex;
@@ -115,7 +120,7 @@ form button:hover {
 }
 
 .item {
-  padding: 0 0.5rem;
+  padding: 0 1rem;
 }
 
 .fa-trash,
