@@ -1,43 +1,44 @@
-//--Selectors--//
+//*--Selectors--*//
 
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo");
 
-//X-Selectors-X//
+//*X-Selectors-X*//
 
-//--Functions--//
+//*--Functions--*//
 
 let addTodo = (e) => {
-  //Preventing form from submitting
+  //* Preventing form from submitting
   e.preventDefault();
-  //todo div
+  //* Todo div
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
-  //Save localStorage
+  //* Save localStorage
   saveLocalTodo(todoInput.value);
-  //create li
+  //* Create li
   const newTodo = document.createElement("li");
   newTodo.innerText = todoInput.value;
   newTodo.classList.add("item");
   todoDiv.appendChild(newTodo);
-  //Check mark
+  //* Check mark
   const completeButton = document.createElement("button");
   completeButton.innerHTML = "<i class='fa fa-check'></i>";
   completeButton.classList.add("complete-btn");
   todoDiv.appendChild(completeButton);
-  //Trash button
+  //* Trash button
   const trashCan = document.createElement("button");
   trashCan.innerHTML = "<i class='fa fa-trash'></i>";
   trashCan.classList.add("trash-btn");
   todoDiv.appendChild(trashCan);
-  //Append to todo-list
+  //* Append to todo-list
   todoList.appendChild(todoDiv);
-  //Clear input
+  //* Clear input
   todoInput.value = "";
 };
 
+//* Delete checker
 let deleteCheck = (e) => {
   console.log(e.target);
   const item = e.target;
@@ -58,6 +59,7 @@ let deleteCheck = (e) => {
   }
 };
 
+//* Filter
 let filterTodo = (e) => {
   const todos = todoList.childNodes;
   todos.forEach(function (todo) {
@@ -85,7 +87,8 @@ let filterTodo = (e) => {
     }
   });
 };
-//Check localStorage
+
+//* Check localStorage
 let saveLocalTodo = (todo) => {
   let todos;
   if (localStorage.getItem("todos") === null) {
@@ -97,7 +100,7 @@ let saveLocalTodo = (todo) => {
   localStorage.setItem("todos", JSON.stringify(todos));
 };
 
-//get todos
+//* Get todos
 let getTodos = () => {
   let todos;
   if (localStorage.getItem("todos") === null) {
@@ -106,30 +109,30 @@ let getTodos = () => {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
   todos.forEach(function (todo) {
-    //todo div
+    //* Todo div
     const todoDiv = document.createElement("div");
     todoDiv.classList.add("todo");
-    //create li
+    //* Create li
     const newTodo = document.createElement("li");
     newTodo.innerText = todo;
     newTodo.classList.add("item");
     todoDiv.appendChild(newTodo);
-    //Check mark
+    //* Check mark
     const completeButton = document.createElement("button");
     completeButton.innerHTML = "<i class='fa fa-check'></i>";
     completeButton.classList.add("complete-btn");
     todoDiv.appendChild(completeButton);
-    //Trash button
+    //* Trash button
     const trashCan = document.createElement("button");
     trashCan.innerHTML = "<i class='fa fa-trash'></i>";
     trashCan.classList.add("trash-btn");
     todoDiv.appendChild(trashCan);
-    //Append to todo-list
+    //* Append to todo-list
     todoList.appendChild(todoDiv);
   });
 };
 
-//Remove todos
+//* Remove todos
 let removeLocalTodo = (todo) => {
   let todos;
   if (localStorage.getItem("todos") === null) {
@@ -142,19 +145,7 @@ let removeLocalTodo = (todo) => {
   localStorage.setItem("todos", JSON.stringify(todos));
 };
 
-//X-Funtions-X//
-
-//--Event Listeners--//
-
-todoButton.addEventListener("click", addTodo);
-filterOption.addEventListener("click", filterTodo);
-todoList.addEventListener("click", deleteCheck);
-document.addEventListener("DOMContentLoaded", getTodos);
-
-//X-Event Listeners-X//
-
-// Clock
-
+//* Clock
 function digitalClock() {
   let date = new Date();
   let hour = date.getHours() + "";
@@ -179,5 +170,21 @@ function digitalClock() {
 
   document.getElementById("clock").innerHTML = clock;
 }
+//*X-Funtions-X*//
+
+//*--Event Listeners--*//
+
+todoButton.addEventListener("click", addTodo);
+filterOption.addEventListener("click", filterTodo);
+todoList.addEventListener("click", deleteCheck);
+document.addEventListener("DOMContentLoaded", getTodos);
+
+//*X-Event Listeners-X*//
+
+//*--Clock call--*//
 
 setInterval(digitalClock, 1000);
+
+//*X-Clock Call-X*//
+
+//todo make sure that the scroll bar starts with a width of none instead of having to interect with the todo list
